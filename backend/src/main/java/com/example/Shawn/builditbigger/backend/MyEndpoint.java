@@ -6,6 +6,7 @@
 
 package com.example.Shawn.builditbigger.backend;
 
+import com.example.shawn.JokeProvider;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
@@ -33,6 +34,20 @@ public class MyEndpoint {
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
         response.setData("Hi, " + name);
+
+        return response;
+    }
+
+    /**
+     * A simple endpoint method that returns a joke from the jokes library
+     */
+    @ApiMethod(name = "getJoke")
+    public Joke getJoke() {
+        Joke response = new Joke();
+
+        JokeProvider jokeProvider = new JokeProvider();
+
+        response.setJoke(jokeProvider.getAJoke());
 
         return response;
     }

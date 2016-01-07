@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JokeView</string>
+    <string name="test_joke">Why did the chicken cross the road?  To get to the other side!!</string>
+</resources>
